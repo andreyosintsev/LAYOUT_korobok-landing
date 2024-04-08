@@ -1,0 +1,392 @@
+@import "normalize.css";
+@import "fonts.css";
+
+body {
+    color: #3C4F65;
+    font-family: Inter, /*Calibri, Segoe, "Segoe UI"*/ arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.h1 {
+    margin-bottom: 30px;
+
+    color: #FFFFFF;
+    font-size: 64px;
+    font-weight: 700;
+
+    line-height: 72.96px;
+}
+
+.h2 {
+    color: #12263E;
+    font-size: 48px;
+    font-weight: 700;
+
+    line-height: 60px;
+}
+
+.h4 {
+    color: #12263E;
+    font-size: 20px;
+    font-weight: 700;
+
+    line-height: 24.2px;
+}
+
+.button {
+    color: #F5F5F5;
+    font-size: 18px;
+    font-weight: 600;
+
+    line-height: 21.78px;
+
+    border: none;
+    border-radius: 10px;
+    outline: none;
+
+    background-color: #9A68FF;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+
+    background-color: #CCCCCC;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36px 135px;
+
+    background-color: #2A007F;
+}
+
+.logo {
+    display: block;
+    width: 139px;
+    height: 28px;
+
+    background: url('../images/logo.svg');
+}
+
+
+/*
+    ГЛАВНОЕ МЕНЮ
+*/
+
+.menu-main__items {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    line-height: 20.8px;
+}
+
+.menu-main__item {
+    margin-right: 44px;
+}
+
+.menu-main__item:nth-last-child(1) {
+    margin-right: 0;
+}
+
+.menu-main__link {
+    color: #FFFFFF;
+
+    text-decoration: none;
+}
+
+.menu-main__link:hover {
+    text-decoration: underline;
+}
+
+
+/*
+    ЧТО ТАКОЕ КОРОБОК?
+*/
+
+.what-is-korobok {
+    display: flex;
+    height: 730px;
+
+    background: url(../images/background-top.png) no-repeat;
+    background-color: #FEFEFE;
+
+    overflow: hidden;
+}
+
+.what-is-korobok__content {
+    width: 50%;
+    padding: 100px 135px 0;
+
+    white-space: normal;
+}
+.what-is-korobok__screenshot {
+    width: 50%;
+}
+
+.what-is-korobok__text {
+    margin-bottom: 30px;
+
+    color: #FFFFFF;
+    font-size: 18px;
+
+    line-height: 23.4px;
+}
+
+.what-is-korobok__button {
+    width: 253px;
+    height: 72px;
+}
+
+.what-is-korobok__screenshot {
+    position: relative;
+}
+
+.what-is-korobok__screenshot .screenshot__image {
+    position: absolute;
+    width: 850px;
+    height: 580px;
+    margin-top: 48px;
+    margin-right: -142px;
+
+    box-shadow: 30px 60px 42px 0px #00000016;
+    
+    z-index: 2;
+}
+
+.what-is-korobok__screenshot .screenshot__decoration {
+    position: absolute;
+    left: -53px;
+    bottom: 40px;
+    z-index: 1;
+}
+
+/*
+    НАШ ПРОЕКТ НУЖЕН
+*/
+
+.our-project-purpose {
+    padding: 62px 135px 50px;
+
+    background-color: #FEFEFE;
+}
+
+.our-project-purpose__heading {
+    margin-bottom: 40px;
+}
+
+.our-project-purpose__content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.our-project-purpose__card {
+    width: 25%;
+    margin-right: 88px;
+}
+
+.our-project-purpose__card:nth-last-child(1) {
+    margin-right: 0;
+}
+
+.our-project-purpose__card .card__title {
+    margin-bottom: 15px;
+}
+
+.our-project-purpose__card .card__image {
+    height: 86px;
+    margin-bottom: 25px;
+}
+
+.our-project-purpose__card .card__text {
+    line-height: 20.8px;
+}
+
+
+/*
+    ЗАЧЕМ ОН НУЖЕН
+*/
+
+.why-it {
+    padding: 50px 135px 105px;
+
+    background-color: #FEFEFE;
+}
+
+.why-it__content {
+    display: block;
+}
+
+.why-it__row {
+    display: flex;
+    margin-bottom: 26px;
+}
+
+.why-it__row:nth-last-child(1) {
+    margin-bottom: 0;
+}
+
+.why-it__heading {
+    margin-bottom: 40px;
+}
+
+.why-it__card {
+    display: flex;
+    width: 50%;
+    margin-right: 26px;
+    padding: 26px 37px 26px 26px;
+
+
+    background-color: #F5F4FD;
+
+    border-radius: 20px;
+}
+
+.why-it__card:nth-last-child(1) {
+    margin-right: 0;
+}
+
+.why-it__card .card__content {
+    display: block;
+}
+
+.why-it .card__image {
+    width: 199px;
+    height: 199px;
+    margin-right: 37px;
+}
+
+.why-it .card__title {
+    margin-bottom: 18px;
+}
+
+.why-it .card__text {
+    line-height: 23.2px;
+}
+
+
+/*
+    ЧТО ЕЩЁ?
+*/
+
+.what-else {
+    padding: 185px 135px 128px;
+
+    background: url(../images/background-middle.png) no-repeat;
+    background-color: #FEFEFE;
+}
+
+.what-else__heading {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.what-else__heading::before {
+    content: '';
+    position: absolute;
+    display: block;
+    left: -20px;
+    bottom: 105px;
+    width: 86px;
+    height: 88px;
+    background: url(../images/what-else-heading.svg) no-repeat;
+}
+
+.what-else__content {
+    display: flex;
+}
+
+.what-else__card {
+    width: 33.3%;
+    margin-right: 88px;
+}
+
+.what-else__card:nth-last-child(1) {
+    margin-right: 0;
+}
+
+.what-else__card .card__image {
+    height: 86px;
+    margin-bottom: 32px;
+}
+
+.what-else__card .card__title {
+    margin-bottom: 14px;
+}
+
+.what-else__card .card__text {
+    line-height: 24px;
+}
+
+
+/*
+    ЧТО ЛЕЖИТ В КОРОБКЕ?
+*/
+
+.what-lies-in {
+    display: flex;
+    padding: 118px 151px 117px 101px;
+
+    background-color: #FEFEFE;
+}
+
+.what-lies-in__content {
+    margin-right: 87px;
+}
+
+.what-lies-in__heading {
+    margin-bottom: 30px;
+}
+
+.what-lies-in__text {
+    font-size: 18px;
+
+    line-height: 27px;
+}
+
+.what-lies-in__items {
+    list-style: none;
+
+    padding-left: 0;
+
+    font-size: 18px;
+
+    line-height: 41px;
+}
+
+.what-lies-in__item {
+    display: flex;
+    align-items: center;
+
+    white-space: nowrap;
+}
+
+.what-lies-in__item::before {
+    content: '';
+    display: block;
+    height: 28px;
+    width: 28px;
+    margin-right: 16px;
+
+    background: url(../images/list-bullet.svg);
+}
+
+.what-lies-in__screenshot .screenshot__image {
+    width: 482px;
+    height: 474px;
+}
