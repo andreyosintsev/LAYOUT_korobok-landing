@@ -1,0 +1,13 @@
+<svg width="64" height="65" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="67" width="66" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <circle id="svg_1" fill="#E53FAD" transform="rotate(-136.76800537109375 9.156972885131834,8.30908203125) " r="7.96561" cy="8.309083" cx="9.156974"/>
+  <circle id="svg_2" fill="#1CBCFF" transform="rotate(-136.76800537109375 54.68907165527344,15.240581512451175) " r="8.46108" cy="15.240583" cx="54.689074"/>
+  <path id="svg_3" fill="#FFDC22" d="m0.323874,49.221683l14.4337,15.0259l17.7646,-15.0259l-17.7646,-17.1724l-14.4337,17.1724z"/>
+ </g>
+</svg>
