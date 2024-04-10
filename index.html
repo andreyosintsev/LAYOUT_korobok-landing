@@ -56,9 +56,9 @@
                     <p class="what-is-korobok__text">
                         Комплексное hard&soft решение для <br>автоматизации сборки заказов на складе <br>с адресным хранением.
                     </p>
-                    <button class="button what-is-korobok__button">
+                    <a class="button what-is-korobok__button" href="/">
                         Начать пользоваться
-                    </button>
+                    </a>
                 </div>
                 <div class="screenshot what-is-korobok__screenshot">
                     <img class="screenshot__image" src="images/screenshot-small.png" alt="Коробок">
@@ -241,7 +241,7 @@
                                 Техническая поддержка
                             </li>
                         </ul>
-                        <button class="button card__button card__button_faded">
+                        <button class="button card__button card__button_faded" data-rate="mini">
                             5 000 руб/месяц
                         </button>
                     </div>
@@ -290,7 +290,7 @@
                                 Техническая поддержка
                             </li>
                         </ul>
-                        <button class="button card__button card__button_focused">
+                        <button class="button card__button card__button_focused" data-rate="maximum">
                             15 000 руб/месяц
                         </button>
                     </div>
@@ -339,12 +339,10 @@
                                 Техническая поддержка
                             </li>
                         </ul>
-                        <button class="button card__button">
+                        <button class="button card__button" data-rate="vip">
                             40 000 руб/месяц
                         </button>
                     </div>
-
-                
             </section>
             <section class="demo" id="demo">
                 <heading class="demo__title">
@@ -356,9 +354,9 @@
                     </div>
                 </heading>
                 <div class="demo__content">
-                    <button class="button demo__button">
+                    <a class="button demo__button" href="/">
                         Начать пользоваться
-                    </button>
+                    </a>
                     <div class="screenshot demo__screenshot">
                         <img class="screenshot__image" src="images/screenshot.png" alt="Демо-версия">
                     </div>
@@ -379,27 +377,27 @@
                 &copy; Copyright 2024, Все права защищены
             </div>
         </footer>
-        <div class="popup">
-            <div class="popup__content">
-                <h2 class="h2 popup__heading">
-                    Оставьте заявку
-                </h2>
-                <form class="form popup__form" name="form">
-                    <input class="form__input" name="name" value="" placeholder="ФИО" form="form">
-                    <input class="form__input" name="tel" value="" placeholder="Телефон" form="form">
-                    <input class="form__input form__input_error" name="email" value="" placeholder="Почта" form="form">
-                    <div class="form__submit">
-                        <input class="button form__button" type="submit" value="Заказать"></input>
-                        <div class="form__offer">
-                            Нажимая кнопку &ldquo;Заказать&rdquo;<br>
-                            вы соглашаетесь с <a class="form__link" href="offer.html" title="Текст публичной оферты">публичной офертой</a>
-                        </div>
+        <div class="popup hidden">
+            <h2 class="h2 popup__heading">
+                Оставьте заявку
+            </h2>
+            <form class="form popup__form" method="GET">
+                <input class="form__input" name="name" placeholder="ФИО">
+                <input class="form__input" name="tel" placeholder="Телефон">
+                <input class="form__input" name="email" placeholder="Почта">
+                <input type="hidden" name="rate">
+                <div class="form__submit">
+                    <input class="button form__button" type="submit" value="Заказать"></input>
+                    <div class="form__offer">
+                        Нажимая кнопку &ldquo;Заказать&rdquo;<br>
+                        вы соглашаетесь с <a class="form__link" href="offer.html" title="Текст публичной оферты" target="_blank">публичной офертой</a>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
-        <div class="overlay"></div>
+        <div class="overlay hidden"></div>
     </div>
     
+    <script src="scripts.js"></script>
 </body>
 </html>

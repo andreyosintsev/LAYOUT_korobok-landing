@@ -1,6 +1,10 @@
 @import "normalize.css";
 @import "fonts.css";
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     color: #3C4F65;
     font-family: Inter, /*Calibri, Segoe, "Segoe UI"*/ arial, sans-serif;
@@ -15,6 +19,14 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
     margin: 0;
+}
+
+.hidden {
+    display: none !important;    
+}
+
+.noscroll {
+    overflow: hidden;
 }
 
 .h1 {
@@ -52,6 +64,7 @@ p {
 }
 
 .button {
+    display: inline-block;
     padding: 25px 30px;
 
     color: #F5F5F5;
@@ -59,6 +72,7 @@ p {
     font-weight: 600;
 
     line-height: 21.78px;
+    text-decoration: none;
 
     border: none;
     border-radius: 10px;
@@ -71,6 +85,8 @@ p {
 
 .button:hover {
     background-color: #B089FF;
+
+    transition: 0.3s all;
 }
 
 .list {
@@ -99,8 +115,6 @@ p {
     background-size: contain;
 }
 
-
-
 .wrapper {
     width: 100%;
     max-width: 1440px;
@@ -124,6 +138,10 @@ p {
     height: 28px;
 
     background: url('../images/logo.svg');
+}
+
+.logo_offer {
+    background: url('../images/logo-offer.svg');
 }
 
 
@@ -607,19 +625,9 @@ p {
 
 .popup {
     position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
-    z-index: 1000;
-}
-
-.popup__content {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 435px;
     padding: 28px 24px 29px;
 
@@ -628,6 +636,7 @@ p {
     border-radius: 20px;
 
     overflow: hidden;
+    z-index: 1000;
 }
 
 .popup__heading {
@@ -656,6 +665,12 @@ p {
     outline: none;
 }
 
+.form__input:focus {
+    border: 1px solid #9A68FF;
+
+    transition: 0.3s;
+}
+
 .form__input_error {
     color: #FF5F5F;
 
@@ -665,8 +680,6 @@ p {
 .form__input_error::placeholder {
     color: #FF5F5F;
 }
-
-
 
 .form__submit {
     display: flex;
@@ -690,6 +703,10 @@ p {
     color: #9A68FF;
 }
 
+.form__link:hover {
+    color: #B089FF;
+}
+
 .overlay {
     position: fixed;
     display: block;
@@ -698,8 +715,39 @@ p {
     width: 100%;
     height: 100%;
     
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
 
     overflow: auto;
     z-index: 500;
+}
+
+
+
+
+/*
+    ОФЕРТА
+*/
+
+.header_offer {
+    background-color: #FEFEFE;
+}
+
+.menu-main_offer .menu-main__link {
+    color: #252525;
+}
+
+.offer {
+    padding: 40px 333px 60px;
+
+    background-color: #FEFEFE;
+}
+
+.offer__heading {
+    color: #12263E;
+
+    line-height: 80px;
+}
+
+.offer__text {
+    line-height: 24px;
 }
