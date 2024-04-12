@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.querySelector('.overlay');
 
     if (!(body && popup && form && overlay)) {
-        console.error('Отсутствуют необходимые элементы HTML');
+        console.error('Ошибка: отсутствуют необходимые элементы HTML');
         return;
     }
 
@@ -24,22 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const ratesButtons = document.querySelectorAll('.rates__card button');
         
     ratesButtons.forEach(button => button.addEventListener('click', () => {
-        showHidePopup(body, popup, overlay)
+        showPopup(body, popup, overlay)
         setRateToButton(button, popup);
     }))
 
-    overlay.addEventListener('click', hidePopup);
+    overlay.addEventListener('click', hidePopupAndResetForm);
     window.addEventListener('keyup', (e) => {
-        if (e.key === 'Escape') {
-            hidePopup();
-        }
+        if (e.key === 'Escape') hidePopupAndResetForm();
     })
 
-    function hidePopup() {
-        showHidePopup(body, popup, overlay)
+    function hidePopupAndResetForm() {
+        hidePopup(body, popup, overlay)
         setRateToButton(undefined, popup);
         resetForm(form);
-        resetPlaceholders(form);
+        clearFormErrors(form);
     }
 
 
@@ -47,8 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
     РАБОТА С ФОРМОЙ
 */  
     
-    form.addEventListener('submit', (e) => checkErrors(e));
-    form.addEventListener('click', clearErrors);
+    form.addEventListener('submit', (e) => checkFormErrors(e));
+    form.addEventListener('click', (e) => clearFormErrors(e.currentTarget));
 
     const inputs = form.querySelectorAll('.form__input');
     inputs.forEach(input => {
@@ -56,18 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 })
 
-const showHidePopup = (body, popup, overlay) => {
-    const isHidden = popup.classList.contains('hidden');
+const showPopup = (body, popup, overlay) => {
+    body.classList.add('noscroll');
+    popup.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+}
 
-    if (isHidden) {
-        body.classList.add('noscroll');
-        popup.classList.remove('hidden');
-        overlay.classList.remove('hidden');
-    } else {
-        body.classList.remove('noscroll');
-        popup.classList.add('hidden');
-        overlay.classList.add('hidden');
-    }
+const hidePopup = (body, popup, overlay) => {
+    body.classList.remove('noscroll');
+    popup.classList.add('hidden');
+    overlay.classList.add('hidden');
 }
 
 const setRateToButton = (button, popup) => {
@@ -75,13 +71,14 @@ const setRateToButton = (button, popup) => {
     const inputRate = popup.querySelector('.form input[name="rate"]');
 
     if (!inputRate) {
+        console.error('Ошибка: в HTML кнопки не был указан тариф data-rate');
         return;
     }
        
     inputRate.value = rate;
 }
 
-function checkErrors(e) {
+function checkFormErrors(e) {
     e.preventDefault();
 
     let isFormValid = true;
@@ -95,7 +92,7 @@ function checkErrors(e) {
     const formEmail = form.querySelector('input[name="email"]');
 
     if (!formName || !formName.value) {
-        console.error('В форме не было указано ФИО');
+        console.error('Ошибка: в форме не было указано ФИО');
         
         formName.classList.add('form__input_error');
         formName.placeholder = 'Необходимо указать ФИО';
@@ -104,7 +101,7 @@ function checkErrors(e) {
     }
 
     if (!((formTel && formTel.value) || (formEmail && formEmail.value))) {
-        console.error('В форме не был указан телефон или e-mail');
+        console.error('Ошибка: в форме не был указан телефон или e-mail');
         
         formTel.classList.add('form__input_error');
         formEmail.classList.add('form__input_error');
@@ -114,16 +111,12 @@ function checkErrors(e) {
         isFormValid = false;
     }
 
-    if (isFormValid) {
-        form.submit();
-    }
+    if (isFormValid) form.submit();
 }
 
-function clearErrors() {
-    resetPlaceholders(this);
-}
+function clearFormErrors(form) {
+    if (!form) return;
 
-function resetPlaceholders(form) {
     const inputs = form.querySelectorAll('.form__input');
     inputs.forEach(input => {
         input.classList.remove('form__input_error');
@@ -132,6 +125,8 @@ function resetPlaceholders(form) {
 }
 
 function resetForm(form) {
+    if (!form) return;
+
     const inputs = form.querySelectorAll('.form__input');
     inputs.forEach(input => input.value = '');
 }

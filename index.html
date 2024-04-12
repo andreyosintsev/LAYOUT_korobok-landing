@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Korobok.net - Что такое коробок?</title>
     <link rel="stylesheet" href="css/styles.css" >
 </head>
@@ -51,18 +51,20 @@
             <section class="what-is-korobok" id="what-is-korobok">
                 <div class="what-is-korobok__content">
                     <h1 class="h1 what-is-korobok__heading">
-                        Что такое коробок?
+                        Что такое Коробок?
                     </h1>
                     <p class="what-is-korobok__text">
-                        Комплексное hard&soft решение для <br>автоматизации сборки заказов на складе <br>с адресным хранением.
+                        Комплексное hard&soft решение для автоматизации сборки заказов на складе с адресным хранением.
                     </p>
                     <a class="button what-is-korobok__button" href="/">
                         Начать пользоваться
                     </a>
                 </div>
                 <div class="screenshot what-is-korobok__screenshot">
-                    <img class="screenshot__image" src="images/screenshot-small.png" alt="Коробок">
-                    <img class="screenshot__decoration" src="images/screenshot-small-decoration.svg" alt="Коробок">
+                    <div class="screenshot__image-wrapper">
+                        <img class="screenshot__image" src="images/screenshot-small.png" alt="Коробок">
+                        <!--img class="screenshot__decoration" src="images/screenshot-small-decoration.svg" alt="Коробок"-->
+                    </div>
                 </div>
             </section>
             <section class="our-project-purpose" id="our-project-purpose">
@@ -72,23 +74,31 @@
                 <div class="our-project-purpose__content">
                     <div class="card our-project-purpose__card">
                         <img class="card__image" src="images/purpose-1.svg" alt="Компаниям">
-                        <h4 class="h4 card__title">Оптовым компаниям и дистрибьюторам</h4>
-                        <p class="card__text">Автоматизация сборки, работа с логистическими компаниями, обработка возвратов</p>
+                        <div class="card__content">
+                            <h4 class="h4 card__title">Оптовым компаниям и дистрибьюторам</h4>
+                            <p class="card__text">Автоматизация сборки, работа с логистическими компаниями, обработка возвратов</p>
+                        </div>
                     </div>
                     <div class="card our-project-purpose__card">
                         <img class="card__image" src="images/purpose-2.svg" alt="Ритейлерам">
-                        <h4 class="h4 card__title">Ритейлерам и интернет-магазинам</h4>
-                        <p class="card__text">Оптимизация заказов и сервиса для лучшего удовлетворения клиентов.</p>
+                        <div class="card__content">
+                            <h4 class="h4 card__title">Ритейлерам и интернет-магазинам</h4>
+                            <p class="card__text">Оптимизация заказов и сервиса для лучшего удовлетворения клиентов.</p>
+                        </div>
                     </div>
                     <div class="card our-project-purpose__card">
                         <img class="card__image" src="images/purpose-3.svg" alt="Продавцам">
-                        <h4 class="h4 card__title">Продавцам на маркетплейсах</h4>
-                        <p class="card__text">Работающих по FBS и DBS.</p>
+                        <div class="card__content">
+                            <h4 class="h4 card__title">Продавцам на маркетплейсах</h4>
+                            <p class="card__text">Работающих по FBS и DBS.</p>
+                        </div>
                     </div>
                     <div class="card our-project-purpose__card">
                         <img class="card__image" src="images/purpose-4.svg" alt="Предпринимателям">
-                        <h4 class="h4 card__title">Бизнесменам и предпринимателям</h4>
-                        <p class="card__text">Для упрощения работы с заказами, повышения эффективности и управления.</p>
+                        <div class="card__content">
+                            <h4 class="h4 card__title">Бизнесменам и предпринимателям</h4>
+                            <p class="card__text">Для упрощения работы с заказами, повышения эффективности и управления.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -99,14 +109,18 @@
                 <div class="why-it__content">
                     <div class="why-it__row">
                         <div class="card why-it__card">
-                            <img class="card__image" src="images/why-it-1.png" alt="Ускорение сборки">
+                            <div class="card__image-wrapper">
+                                <img class="card__image" src="images/why-it-1.png" alt="Ускорение сборки">
+                            </div>
                             <div class="card__content">
                                 <h4 class="h4 card__title">Ускорение процесса сборки заказов</h4>
                                 <p class="card__text">Это особенно важно для интернет-магазинов с большим количеством заказов и товаров.</p>
                             </div>
                         </div>
                         <div class="card why-it__card">
-                            <img class="card__image" src="images/why-it-2.png" alt="Улучшение качества">
+                            <div class="card__image-wrapper">
+                                <img class="card__image" src="images/why-it-2.png" alt="Улучшение качества">
+                            </div>
                             <div class="card__content">
                                 <h4 class="h4 card__title">Улучшение качества сборки</h4>
                                 <p class="card__text">Автоматизация сокращает ошибки комплектации и пропусков заказов, улучшая удовлетворенность клиентов и репутацию магазина.</p>
@@ -115,14 +129,18 @@
                     </div>
                     <div class="why-it__row">
                         <div class="card why-it__card">
-                            <img class="card__image" src="images/why-it-3.png" alt="Сокращение времени">
+                            <div class="card__image-wrapper">
+                                <img class="card__image" src="images/why-it-3.png" alt="Сокращение времени">
+                            </div>
                             <div class="card__content">
                                 <h4 class="h4 card__title">Сокращение времени на обработку заказов</h4>
                                 <p class="card__text">Уменьшается время на обработку каждого заказа, что позволяет ускорить доставку товаров клиентам и повысить уровень обслуживания.</p>
                             </div>
                         </div>
                         <div class="card why-it__card">
-                            <img class="card__image" src="images/why-it-4.png" alt="Повышение скорости">
+                            <div class="card__image-wrapper">
+                                <img class="card__image" src="images/why-it-4.png" alt="Повышение скорости">
+                            </div>
                             <div class="card__content">
                                 <h4 class="h4 card__title">Повышение эффективности работы персонала</h4>
                                 <p class="card__text">Автоматизированная система сборки освобождает сотрудников для консультаций и обработки возвратов.</p>
@@ -185,7 +203,7 @@
                 </div>                 
             </section>
             <section class="rates" id="rates">
-                <heading class="rates__title">
+                <div class="rates__title">
                     <h1 class="h2 rates__heading">
                         Тарифы
                     </h1>
@@ -194,7 +212,7 @@
                         <p>Удалённая настройка софта <b>от 25 тыс</b></p>
                         <p>Доработка функционала <b>от 50 тыс</b></p>
                     </div>
-                </heading>
+                </div>
                 <div class="rates__content">
                     <div class="card rates__card rates__card_mini">
                         <h3 class="h3 card__heading">
@@ -232,7 +250,7 @@
                                 Аналитика по сборщикам
                             </li>
                             <li class="list__item list__item_inactive">
-                                Устройства индикации/&laquo;подсказки&raquo;
+                                Устройства индикации/<wbr>&laquo;подсказки&raquo;
                             </li>
                             <li class="list__item list__item_inactive">
                                 Работы с маркировкой товаров
@@ -281,7 +299,7 @@
                                 Аналитика по сборщикам
                             </li>
                             <li class="list__item">
-                                Устройства индикации/&laquo;подсказки&raquo;
+                                Устройства индикации/<wbr>&laquo;подсказки&raquo;
                             </li>
                             <li class="list__item">
                                 Работы с маркировкой товаров
@@ -330,7 +348,7 @@
                                 Аналитика по сборщикам
                             </li>
                             <li class="list__item">
-                                Устройства индикации/&laquo;подсказки&raquo;
+                                Устройства индикации/<wbr>&laquo;подсказки&raquo;
                             </li>
                             <li class="list__item">
                                 Работы с маркировкой товаров
@@ -343,16 +361,17 @@
                             40 000 руб/месяц
                         </button>
                     </div>
+                </div>
             </section>
             <section class="demo" id="demo">
-                <heading class="demo__title">
+                <div class="demo__title">
                     <h1 class="h2 demo__heading">
                         Демо-версия
                     </h1>
                     <div class="demo__summary">
                         <p>Здесь вы можете посмотреть демо-версию нашей системы.</p>
                     </div>
-                </heading>
+                </div>
                 <div class="demo__content">
                     <a class="button demo__button" href="/">
                         Начать пользоваться
@@ -387,7 +406,7 @@
                 <input class="form__input" name="email" placeholder="Почта">
                 <input type="hidden" name="rate">
                 <div class="form__submit">
-                    <input class="button form__button" type="submit" value="Заказать"></input>
+                    <input class="button form__button" type="submit" value="Заказать">
                     <div class="form__offer">
                         Нажимая кнопку &ldquo;Заказать&rdquo;<br>
                         вы соглашаетесь с <a class="form__link" href="offer.html" title="Текст публичной оферты" target="_blank">публичной офертой</a>

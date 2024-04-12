@@ -30,8 +30,6 @@ p {
 }
 
 .h1 {
-    margin-bottom: 30px;
-
     color: #FFFFFF;
     font-size: 64px;
     font-weight: 700;
@@ -127,7 +125,7 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 36px 135px;
+    padding: 32px 9.375%;
 
     background-color: #2A007F;
 }
@@ -183,22 +181,28 @@ p {
 
 .what-is-korobok {
     display: flex;
-    height: 730px;
+    height: 725px;
 
     background: url(../images/background-top.png) no-repeat;
+    background-size: cover;
     background-color: #FEFEFE;
 
     overflow: hidden;
 }
 
+.what-is-korobok__heading {
+    margin-bottom: 20px;
+}
+
 .what-is-korobok__content {
-    width: 50%;
-    padding: 100px 135px 0;
+    width: 51%;
+    padding: 100px 9.375% 0;
 
     white-space: normal;
 }
 .what-is-korobok__screenshot {
-    width: 50%;
+    display: inline-block;
+    width: 49%;
 }
 
 .what-is-korobok__text {
@@ -207,38 +211,45 @@ p {
     color: #FFFFFF;
     font-size: 18px;
 
-    line-height: 23.4px;
-}
-
-.what-is-korobok__screenshot {
-    position: relative;
+    line-height: 23px;
 }
 
 .what-is-korobok__screenshot .screenshot__image {
-    position: absolute;
-    width: 850px;
-    height: 580px;
+    display: block;
+    width: 100%;
     margin-top: 48px;
-    margin-right: -142px;
 
     box-shadow: 30px 60px 42px 0px #00000016;
     
     z-index: 2;
 }
 
-.what-is-korobok__screenshot .screenshot__decoration {
-    position: absolute;
-    left: -53px;
-    bottom: 40px;
-    z-index: 1;
+
+.screenshot__image-wrapper {
+    position: relative;
 }
+
+.screenshot__image-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(-60%, 70%);
+    width: 87px;
+    height: 85px;
+
+    background-image: url('../images/screenshot-small-decoration.svg');
+    z-index: 1;
+    
+}
+
 
 /*
     НАШ ПРОЕКТ НУЖЕН
 */
 
 .our-project-purpose {
-    padding: 62px 135px 50px;
+    padding: 90px 9.375% 50px;
 
     background-color: #FEFEFE;
 }
@@ -254,7 +265,7 @@ p {
 
 .our-project-purpose__card {
     width: 25%;
-    margin-right: 88px;
+    margin-right: 7.5%;
 }
 
 .our-project-purpose__card:nth-last-child(1) {
@@ -267,7 +278,7 @@ p {
 
 .our-project-purpose__card .card__image {
     height: 86px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .our-project-purpose__card .card__text {
@@ -280,7 +291,7 @@ p {
 */
 
 .why-it {
-    padding: 50px 135px 105px;
+    padding: 33px 9.375% 105px;
 
     background-color: #FEFEFE;
 }
@@ -299,14 +310,17 @@ p {
 }
 
 .why-it__heading {
-    margin-bottom: 40px;
+    margin-bottom: 42px;
 }
 
 .why-it__card {
-    display: flex;
+    display: grid;
     width: 50%;
     margin-right: 26px;
-    padding: 26px 37px 26px 26px;
+    padding: 26px 24px 26px 26px;
+
+    grid-template-columns: 3fr 5fr;
+    column-gap: 37px;
 
 
     background-color: #F5F4FD;
@@ -322,14 +336,17 @@ p {
     display: block;
 }
 
+.card__image-wrapper {
+    display: block;
+}
+
 .why-it .card__image {
-    width: 199px;
-    height: 199px;
-    margin-right: 37px;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .why-it .card__title {
-    margin-bottom: 18px;
+    margin: 8px 0 18px;
 }
 
 .why-it .card__text {
@@ -342,7 +359,7 @@ p {
 */
 
 .what-else {
-    padding: 185px 135px 128px;
+    padding: 184px 9.375% 128px;
 
     background: url(../images/background-middle.png) no-repeat;
     background-color: #FEFEFE;
@@ -383,7 +400,7 @@ p {
 }
 
 .what-else__card .card__title {
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .what-else__card .card__text {
@@ -397,18 +414,19 @@ p {
 
 .what-lies-in {
     display: flex;
-    padding: 118px 151px 117px 101px;
+    align-items: center;
+    padding: 112px 7% 117px 7%;
 
     background-color: #FEFEFE;
 }
 
 .what-lies-in__content {
-    margin-right: 87px;
+    width: 50%;
 }
 
 .what-lies-in__heading {
-    margin-bottom: 30px;
-    padding-top: 56px;
+    margin-bottom: 23px;
+    padding-top: 51px;
 }
 
 .what-lies-in__text {
@@ -424,18 +442,22 @@ p {
     font-size: 18px;
 }
 
+.what-lies-in__screenshot {
+    width: 50%;
+    text-align: center;
+}
+
 .what-lies-in__screenshot .screenshot__image {
-    width: 482px;
-    height: 474px;
+    width: 79%;
 }
 
 
 /*
-    ЧТО ЛЕЖИТ В КОРОБКЕ?
+    ТАРИФЫ
 */
 
 .rates {
-    padding: 200px 135px 147px;
+    padding: 184px 9.375% 147px;
 
     background-color: #F8F8F8;
 }
@@ -446,7 +468,7 @@ p {
     justify-content: space-between;
     align-items: flex-start;
 
-    margin-bottom: 50px;
+    margin-bottom: 42px;
     padding-right: 32px;
 }
 
@@ -455,13 +477,15 @@ p {
     position: absolute;
     display: block;
     left: 0;
-    bottom: 105px;
+    bottom: 128px;
     width: 64px;
     height: 65px;
     background: url(../images/rates.svg) no-repeat;
 }
 
 .rates__summary {
+    padding-top: 9px;
+
     font-size: 18px;
 
     line-height: 27px;
@@ -469,11 +493,15 @@ p {
 
 .rates__content {
     display: flex;
+    padding-bottom: 10px;
+
+    overflow-x: scroll;
 }
 
 .rates__card {
     width: 33.3%;
-    margin-right: 26px;
+    min-width: 260px;
+    margin-right: 2%;
     padding: 34px 32px 40px;
 
     border-radius: 20px;
@@ -501,13 +529,13 @@ p {
 }
 
 .rates__card .card__heading {
-    margin-bottom: 12px;
+    margin-bottom: 19px;
 }
 
 .card__items {
-    margin-bottom: 30px;
+    margin-bottom: 37px;
 
-    line-height: 22px;
+    line-height: 21px;
 }
 
 .card__items .list__item {
@@ -530,6 +558,10 @@ p {
     background: none;
 }
 
+.rates__card .card__button {
+    padding: 25px 10%;
+}
+
 .card__button_faded {
     background-color: #B6B3D3;
 }
@@ -544,7 +576,7 @@ p {
 */
 
 .demo {
-    padding: 150px 178px 105px 135px;
+    padding: 128px 12.4% 105px 9.375%;
 
     background-color: #FEFEFE;
 }
@@ -554,7 +586,7 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 39px;
+    margin-bottom: 57px;
 }
 
 .demo__summary {
@@ -582,6 +614,8 @@ p {
 
 .demo__button {
     position: absolute;
+
+    margin-left: 40px;
 }
 
 
@@ -593,7 +627,7 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 112px;
+    padding: 40px 7.8%;
 
     color: #FFFFFF;
     font-size: 14px;
@@ -650,7 +684,7 @@ p {
 .form__input {
     width: 100%;
     margin-bottom: 15px;
-    padding: 14px 19px;
+    padding: 13px 19px;
 
     color: #5B5B5B;
     font-size: 18px;
@@ -684,12 +718,12 @@ p {
 .form__submit {
     display: flex;
     align-items: center;
-    padding-top: 7px;
+    padding-top: 6px;
 }
 
 .form__button {
     margin-right: 16px;
-    padding: 14px 27px
+    padding: 14px 27px;
 }
 
 .form__offer {
@@ -737,12 +771,14 @@ p {
 }
 
 .offer {
-    padding: 40px 333px 60px;
+    padding: 40px 333px 82px;
 
     background-color: #FEFEFE;
 }
 
 .offer__heading {
+    margin-bottom: 30px;
+
     color: #12263E;
 
     line-height: 80px;
@@ -750,4 +786,487 @@ p {
 
 .offer__text {
     line-height: 24px;
+}
+
+@media screen and (max-width: 1440px) {
+    /*
+        Максимальный правый отступ пунктов меню - 44px при разрешении по горизонтали 1440px.
+        Минимальный - 12px при рахрешении 900px. Далее меню коллапсирует в кнопку.
+        calc (минимальный отступ + (максимальный отступ - минимальный отступ)/(максимальная ширина - минимальная ширина) * (100vw - минимальная ширина)
+    */
+
+    .menu-main__item {
+        margin-right: calc(6.25vw - 45px);
+    }
+
+    .what-is-korobok {
+        height: calc(46.9vw + 50px);
+    }
+
+    .what-is-korobok__screenshot .screenshot__image {
+        box-shadow: calc(3.6vw - 22px) calc(7.2vw - 44px) 42px 0px #00000016;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .h1 {
+        font-size: 54px;
+    
+        line-height: 60px;
+    }
+    
+    .h2 {
+        font-size: 42px;
+    
+        line-height: 50px;
+    }
+    
+    .h3 {
+        font-size: 26px;
+    
+        line-height: 30px;
+    }
+    
+    .h4 {
+        font-size: 18px;
+    
+        line-height: 21px;
+    }
+    
+    .header {
+        padding: 20px 60px;
+    }
+
+    .menu-main {
+        font-size: 14px;
+    }
+
+    .what-is-korobok__content {
+        padding: 75px 60px 0;
+    }
+
+    .our-project-purpose {
+        padding: 45px 60px 30px;
+    }
+
+    .why-it {
+        padding: 30px 60px 60px;
+    }
+
+    .why-it__card {
+        padding: 20px;
+
+        column-gap: 20px;
+    }
+
+    .why-it .card__title {
+        margin: 0 0 8px;
+    }
+
+    .what-else {
+        padding: 50px 60px 60px;
+    }
+
+    .what-else__heading::before {
+        left: 210px;
+        bottom: 10px;
+    }
+
+    .what-else__card .card__title {
+        margin-bottom: 8px;
+    }
+
+    .what-lies-in {
+        padding: 50px 60px 50px;
+    }
+
+    .rates {
+        padding: 50px 60px 60px;
+    }
+
+    .rates__title::before {
+        left: 210px;
+        bottom: 60px;
+    }
+
+    .rates__card {
+        padding: 30px 24px 24px;    
+    }
+
+    .demo {
+        padding: 50px 60px 60px;
+    }
+
+    .demo__screenshot {
+        box-shadow: 20px 40px 50px 0px #00000026;
+    }
+
+    .footer {
+        padding: 20px 60px;
+    }
+
+    .popup__heading {
+        font-size: 28px;
+    
+        line-height: 35px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    body {
+        font-size: 14px;
+    }
+
+    .h1 {
+        font-size: 50px;
+    
+        line-height: 52px;
+    }
+    
+    .h2 {
+        font-size: 38px;
+    
+        line-height: 50px;
+    }
+
+    .list__item::before {
+        width: 22px;
+        height: 22px;
+        margin-top: -5px;
+        margin-right: 10px;
+    }
+
+    .button {
+        display: block;
+        width: 100%;
+        padding: 20px 20px;
+    
+        font-size: 16px;
+    
+        line-height: 21.78px;
+    }
+
+    .header {
+        padding: 20px 20px;
+    }
+
+    .what-is-korobok {
+        height: 440px;
+
+        background-size: auto;
+    }
+
+    .what-is-korobok__content {
+        padding: 50px 40px 0;
+    }
+
+    .what-is-korobok__text {
+        font-size: 16px;
+
+        line-height: 20px;
+    }
+
+    .what-is-korobok__screenshot .screenshot__image {
+        margin-top: 25px;
+    }
+
+    .our-project-purpose {
+        padding: 45px 40px 30px;
+    }
+
+    .our-project-purpose__heading {
+        margin-bottom: 25px;
+    }
+
+    .our-project-purpose__card .card__image {
+        height: 70px;
+
+        margin-bottom: 10px;
+    }
+
+    .why-it {
+        padding: 30px 40px 60px;
+    }
+
+    .why-it__heading {
+        margin-bottom: 25px;
+    }
+
+    .what-else {
+        padding: 50px 40px 60px;
+    }
+
+    .what-else__heading {
+        margin-bottom: 20px;
+    }
+
+    .what-else__heading::before {
+        display: none
+    }
+
+    .what-else__card {
+        margin-right: 30px;
+    }
+
+    .what-else__card .card__image {
+        height: 70px;
+        margin-bottom: 14px;
+    }
+
+    .what-lies-in {
+        padding: 50px 40px 50px;
+    }
+
+    .what-lies-in__heading {
+        padding-top: 20px;
+    }
+
+    .what-lies-in__heading {
+        line-height: 40px;
+    }
+
+    .what-lies-in .list__item {
+        font-size: 16px;
+    }
+
+    .rates {
+        padding: 50px 40px 60px;
+    }
+
+    .rates__title::before {
+        display: none;
+    }
+
+    .rates__summary {
+        font-size: 16px;
+
+        line-height: 24px;
+    }
+
+    .rates__card {
+        padding: 24px 20px 20px;    
+    }
+
+    .card__items .list__item {
+        margin-bottom: 10px;
+
+        line-height: 18px;
+    }
+
+    .demo {
+        padding: 50px 40px 60px;
+    }
+
+    .demo__summary {
+        font-size: 16px;
+
+        line-height: 24px;
+    }
+
+    .demo__screenshot {
+        box-shadow: 10px 20px 30px 0px #00000026;
+    }
+
+    .footer {
+        padding: 20px 40px;
+    }
+    .popup__heading {
+        margin-bottom: 14px;
+
+        font-size: 24px;
+    
+        line-height: 30px;
+    }
+
+    .form__input {
+        padding: 10px 17px;
+        font-size: 16px;
+    }
+
+    .footer__email {
+        margin-right: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .h1 {
+        font-size: 46px;
+    
+        line-height: 48px;
+    }
+    
+    .h2 {
+        font-size: 34px;
+    
+        line-height: 36px;
+    }
+
+    /*
+    .h3 {
+        font-size: 26px;
+    
+        line-height: 30px;
+    }
+    */
+    
+    .h4 {
+        font-size: 16px;
+    
+        line-height: 18px;
+    }
+    .menu-main {
+        display: none;
+    }
+
+    .button {
+        padding: 15px;
+    }
+
+    .what-is-korobok {
+        height: 420px;
+    }
+
+    .what-is-korobok__content {
+        padding: 60px 20px 0 30px;
+    }
+
+    .what-is-korobok__screenshot .screenshot__image {
+        margin-top: 40px;
+    }
+
+    .our-project-purpose {
+        padding: 30px;
+    }
+
+    .our-project-purpose__heading {
+        margin-bottom: 26px;
+    }
+
+    .our-project-purpose__content {
+        flex-direction: column;
+    }
+
+    .our-project-purpose__card {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+    }
+
+    .our-project-purpose__card .card__image {
+        width: 80px;
+        margin-right: 20px;
+        margin-top: 10px;
+    }
+
+    .our-project-purpose__card .card__title {
+        margin-bottom: 8px;
+    }
+
+    .our-project-purpose__card .card__text {
+        line-height: 16px;
+    }
+
+    .why-it {
+        padding: 30px;
+    }
+
+    .why-it__row {
+        display: block;
+
+        margin-bottom: 0;
+    }
+
+    .why-it__card {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 16px;
+
+        grid-template-columns: 1fr 6fr;
+    }
+    
+    .why-it .card__text {
+        line-height: 20px;
+    }
+    
+    .what-else {
+        padding: 30px;
+    }
+
+    .what-else__card .card__text {
+        line-height: 20px;
+    }    
+
+    .what-lies-in {
+        padding: 30px;
+    }
+
+    .what-lies-in__text {
+        font-size: 16px;
+    }
+
+    .what-lies-in .list__item {
+        margin: 0 0 16px;
+
+        font-size: 15px;
+    }
+
+    .rates {
+        padding: 30px;
+    }
+
+    .rates__title {
+        margin-bottom: 30px;
+    }
+
+    .rates__summary {
+        font-size: 15px;
+
+        line-height: 21px;
+    }
+
+    .demo {
+        padding: 30px;
+    }
+
+    .demo__title {
+        margin-bottom: 30px;
+    }
+
+    .demo__summary {
+        font-size: 15px;
+
+        line-height: 21px;
+    }
+
+    .demo__screenshot {
+        box-shadow: 10px 10px 20px 0px #00000026;
+    }
+
+    .demo__button {
+        margin-left: 20px;
+    }
+
+    .footer {
+        padding: 20px 30px;
+
+        font-size: 12px;
+    }
+
+    .footer__email {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+}
+
+@media screen and (max-width: 480px) {
+
+}
+
+@media screen and (max-width: 360px) {
+
 }
