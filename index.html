@@ -49,6 +49,7 @@
                         </li>
                     </ul>
                 </div>
+                <div class="menu-mobile-button"></div>
             </nav>
         </header>        
         <main class="main">
@@ -160,25 +161,31 @@
                 <div class="what-else__content">
                     <div class="card what-else__card">
                         <img class="card__image" src="images/what-else-1.svg" alt="Работа полностью онлайн">
-                        <h4 class="h4 card__title">Работа полностью онлайн</h4>
-                        <p class="card__text">Беспроводное подключение к учетной системе дает доступ к данным о товарах, запасах, ценах, позволяет печатать и создавать документы с кассы.</p>
+                        <div class="card__content">
+                            <h4 class="h4 card__title">Работа полностью онлайн</h4>
+                            <p class="card__text">Беспроводное подключение к учетной системе дает доступ к данным о товарах, запасах, ценах, позволяет печатать и создавать документы с кассы.</p>
+                        </div>
                     </div>
                     <div class="card what-else__card">
                         <img class="card__image" src="images/what-else-2.svg" alt="Адресное хранение">
-                        <h4 class="h4 card__title">Адресное хранение</h4>
-                        <p class="card__text">Складская эффективность основывается на зональной системе с стеллажами и ячейками для разных товаров.</p>
+                        <div class="card__content">
+                            <h4 class="h4 card__title">Адресное хранение</h4>
+                            <p class="card__text">Складская эффективность основывается на зональной системе с стеллажами и ячейками для разных товаров.</p>
+                        </div>
                     </div>
                     <div class="card what-else__card">
                         <img class="card__image" src="images/what-else-3.svg" alt="Подсказки сборщика">
-                        <h4 class="h4 card__title">Подсказки сборщика</h4>
-                        <p class="card__text">Подсказки – это светодиоды на складских ячейках, указывающие сборщику места товаров заказа по цвету.</p>
+                        <div class="card__content">
+                            <h4 class="h4 card__title">Подсказки сборщика</h4>
+                            <p class="card__text">Подсказки – это светодиоды на складских ячейках, указывающие сборщику места товаров заказа по цвету.</p>
+                        </div>
                     </div>
                 </div>
             </section>
             <section class="what-lies-in" id="what-lies-in">
                 <div class="what-lies-in__content">
                     <h1 class="h2 what-lies-in__heading">
-                        Что лежит<br>
+                        Что лежит<br class="what-lies-in__br">
                         в коробке?
                     </h1>
                     <p class="what-lies-in__text">
@@ -400,26 +407,27 @@
                 &copy; Copyright 2024, Все права защищены
             </div>
         </footer>
-        <div class="popup hidden">
-            <h2 class="h2 popup__heading">
-                Оставьте заявку
-            </h2>
-            <form class="form popup__form" method="GET">
-                <input class="form__input" name="name" placeholder="ФИО">
-                <input class="form__input" name="tel" placeholder="Телефон">
-                <input class="form__input" name="email" placeholder="Почта">
-                <input type="hidden" name="rate">
-                <div class="form__submit">
-                    <input class="button form__button" type="submit" value="Заказать">
-                    <div class="form__offer">
-                        Нажимая кнопку &ldquo;Заказать&rdquo;<br>
-                        вы соглашаетесь с <a class="form__link" href="offer.html" title="Текст публичной оферты" target="_blank">публичной офертой</a>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="overlay hidden"></div>
     </div>
+
+    <div class="popup hidden">
+        <h2 class="h2 popup__heading">
+            Оставьте заявку
+        </h2>
+        <form class="form popup__form" method="GET">
+            <input class="form__input" name="name" placeholder="ФИО">
+            <input class="form__input" name="tel" placeholder="Телефон">
+            <input class="form__input" name="email" placeholder="Почта">
+            <input type="hidden" name="rate">
+            <div class="form__submit">
+                <input class="button form__button" type="submit" value="Заказать">
+                <div class="form__offer">
+                    Нажимая кнопку &ldquo;Заказать&rdquo;<br>
+                    вы соглашаетесь с <a class="form__link" href="offer.html" title="Текст публичной оферты" target="_blank">публичной офертой</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="overlay hidden"></div>
     
     <script src="js/scripts.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
@@ -429,19 +437,21 @@
             $('.owl-carousel').owlCarousel(
             {
                 items: 3,
-                margin: 0,
+                margin: 26,
                 loop: true,
                 autoplay: true,
                 autoplayTimeout: 5000,
                 responsiveClass: true,
                 responsive : {
                     0: {
+                        items: 1,
+                        margin: 20,
+                    },
+                    560: {
                         items: 2,
                         margin: 20,
                     },	
                     900: {
-                        items: 3,
-                        margin: 26,
                         autoplay: false,
                     },		
                 },

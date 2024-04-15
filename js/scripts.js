@@ -17,6 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+/*
+    РАБОТА С МОБИЛЬНЫМ МЕНЮ
+*/ 
+
+    const menu = document.querySelector('.menu-main');
+    const menuButton = document.querySelector('.menu-mobile-button');
+
+    if (menu && menuButton) {
+        menuButton.addEventListener('click', () => showMenuMobile(menu, overlay));
+        menu.addEventListener('click', () => hideMenuMobile(menu, overlay));
+    }
     
 /*
     РАБОТА С POPUP
@@ -24,15 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const ratesButtons = document.querySelectorAll('.rates__card button');
         
     ratesButtons.forEach(button => button.addEventListener('click', (e) => {
-        console.log('Button ', e.currentTarget.dataset['rate'], 'clicked!');
         showPopup(body, popup, overlay)
         setRateToButton(button, popup);
     }))
 
-    overlay.addEventListener('click', hidePopupAndResetForm);
+    overlay.addEventListener('click', () => {
+        hideMenuMobile(menu, overlay);
+        hidePopupAndResetForm();
+    });
+
     window.addEventListener('keyup', (e) => {
-        if (e.key === 'Escape') hidePopupAndResetForm();
-    })
+        if (e.key === 'Escape') {
+            hideMenuMobile();
+            hidePopupAndResetForm();
+        }
+    });
 
     function hidePopupAndResetForm() {
         hidePopup(body, popup, overlay)
@@ -53,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     inputs.forEach(input => {
         placeholders[input.name] = input.placeholder;
     });
+
 })
 
 const showPopup = (body, popup, overlay) => {
@@ -130,4 +148,24 @@ function resetForm(form) {
 
     const inputs = form.querySelectorAll('.form__input');
     inputs.forEach(input => input.value = '');
+}
+
+function showMenuMobile(menu, overlay) {
+    if (!menu) {
+        console.error('Ошибка: в HTML отсутствуют необходимые элементы');
+        return;
+    }
+
+    menu.classList.add('menu-main_mobile');
+    overlay.classList.remove('hidden');
+}
+
+function hideMenuMobile(menu, overlay) {
+    if (!menu) {
+        console.error('Ошибка: в HTML отсутствуют необходимые элементы');
+        return;
+    }
+
+    menu.classList.remove('menu-main_mobile');
+    overlay.classList.add('hidden');
 }
