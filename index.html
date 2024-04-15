@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Korobok.net - Что такое коробок?</title>
     <link rel="stylesheet" href="css/styles.css" >
+    <link rel="stylesheet" href="css/styles.css" >
+    <link rel="stylesheet" href="css/owl.carousel.min.css" >
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" >
+
 </head>
 <body>
     <div class="wrapper">
@@ -213,7 +217,7 @@
                         <p>Доработка функционала <b>от 50 тыс</b></p>
                     </div>
                 </div>
-                <div class="rates__content">
+                <div class="rates__content owl-carousel owl-theme">
                     <div class="card rates__card rates__card_mini">
                         <h3 class="h3 card__heading">
                             Мини
@@ -417,6 +421,32 @@
         <div class="overlay hidden"></div>
     </div>
     
-    <script src="scripts.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel(
+            {
+                items: 3,
+                margin: 0,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                responsiveClass: true,
+                responsive : {
+                    0: {
+                        items: 2,
+                        margin: 20,
+                    },	
+                    900: {
+                        items: 3,
+                        margin: 26,
+                        autoplay: false,
+                    },		
+                },
+            });
+        });
+    </script>
 </body>
 </html>

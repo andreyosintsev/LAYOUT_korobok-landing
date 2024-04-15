@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
 */
     const ratesButtons = document.querySelectorAll('.rates__card button');
         
-    ratesButtons.forEach(button => button.addEventListener('click', () => {
+    ratesButtons.forEach(button => button.addEventListener('click', (e) => {
+        console.log('Button ', e.currentTarget.dataset['rate'], 'clicked!');
         showPopup(body, popup, overlay)
         setRateToButton(button, popup);
     }))

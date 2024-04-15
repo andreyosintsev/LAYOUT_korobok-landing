@@ -494,14 +494,12 @@ p {
 .rates__content {
     display: flex;
     padding-bottom: 10px;
-
-    overflow-x: scroll;
 }
 
 .rates__card {
-    width: 33.3%;
+    /* width: 33.3%;
     min-width: 260px;
-    margin-right: 2%;
+    margin-right: 2%; */
     padding: 34px 32px 40px;
 
     border-radius: 20px;
@@ -937,13 +935,16 @@ p {
     }
 
     .button {
-        display: block;
-        width: 100%;
         padding: 20px 20px;
     
         font-size: 16px;
     
         line-height: 21.78px;
+    }
+
+    .rates__card .card__button {
+        display: block;
+        width: 100%;        
     }
 
     .header {
