@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuButton = document.querySelector('.menu-mobile-button');
 
     if (menu && menuButton) {
-        menuButton.addEventListener('click', () => showMenuMobile(menu, overlay));
-        menu.addEventListener('click', () => hideMenuMobile(menu, overlay));
+        menuButton.addEventListener('click', () => showMenuMobile(body, menu, overlay));
+        menu.addEventListener('click', () => hideMenuMobile(body, menu, overlay));
     }
     
 /*
@@ -42,13 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }))
 
     overlay.addEventListener('click', () => {
-        hideMenuMobile(menu, overlay);
+        hideMenuMobile(body, menu, overlay);
         if (popup) hidePopupAndResetForm();
     });
 
     window.addEventListener('keyup', (e) => {
         if (e.key === 'Escape') {
-            hideMenuMobile(menu, overlay);
+            hideMenuMobile(body, menu, overlay);
             if (popup) hidePopupAndResetForm();
         }
     });
@@ -153,22 +153,24 @@ function resetForm(form) {
     inputs.forEach(input => input.value = '');
 }
 
-function showMenuMobile(menu, overlay) {
+function showMenuMobile(body, menu, overlay) {
     if (!menu) {
         console.error('Ошибка: в HTML отсутствуют необходимые элементы');
         return;
     }
-
+    
+    body.classList.add('noscroll');
     menu.classList.add('menu-main_mobile');
     overlay.classList.remove('hidden');
 }
 
-function hideMenuMobile(menu, overlay) {
+function hideMenuMobile(body, menu, overlay) {
     if (!menu) {
         console.error('Ошибка: в HTML отсутствуют необходимые элементы');
         return;
     }
 
+    body.classList.remove('noscroll');
     menu.classList.remove('menu-main_mobile');
     overlay.classList.add('hidden');
 }

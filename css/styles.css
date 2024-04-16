@@ -334,7 +334,7 @@ p {
 
 
 /*
-    ЗАЧЕМ ОН НУЖЕН
+    ДЛЯ ЧЕГО
 */
 
 .why-it {
@@ -1216,7 +1216,7 @@ p {
 
         background: url('../images/menu.svg') no-repeat;
 
-        fill: #FFFFFF;
+        cursor: pointer;
     }
 
     .menu-mobile-button_offer {
