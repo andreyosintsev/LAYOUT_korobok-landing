@@ -1,6 +1,14 @@
-const formAction = '' //Скрипт на php для отправки писем
-const formMethod = 'GET' //GET или POST метод для отправки данных формы
+/*
+    НАСТРОЙКИ ОТПРАВКИ ФОРМЫ ОБРАТНОЙ СВЯЗИ
+*/
+    //Публичный ключ API keys Public Key - https://dashboard.emailjs.com/admin/account
+    const mailPublicKey = 'u3B2FsZ2o1MMFG_r6';
 
+    //Почтовый сервис - https://dashboard.emailjs.com/admin
+    const mailServiceID = 'service_mailru';
+
+    //Шаблон письма - https://dashboard.emailjs.com/admin/templates
+    const mailTemplateID = 'template_korobok';
 
 
 const placeholders = {};
@@ -9,8 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const body = document.querySelector('body');
     const popup = document.querySelector('.popup');
+    const popupSuccess = document.querySelector('.popup-success');
+    const popupFailed = document.querySelector('.popup-failed');
     const form = document.querySelector('.form');
     const overlay = document.querySelector('.overlay');
+    const loader = document.querySelector('.loader');
 
     if (!(body && overlay)) {
         console.error('Ошибка: отсутствуют необходимые элементы HTML');
@@ -44,12 +55,16 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.addEventListener('click', () => {
         hideMenuMobile(body, menu, overlay);
         if (popup) hidePopupAndResetForm();
+        if (popupSuccess) hidePopup(body, popupSuccess, overlay);
+        if (popupFailed) hidePopup(body, popupFailed, overlay);
     });
 
     window.addEventListener('keyup', (e) => {
         if (e.key === 'Escape') {
             hideMenuMobile(body, menu, overlay);
             if (popup) hidePopupAndResetForm();
+            if (popupSuccess) hidePopup(body, popupSuccess, overlay);
+            if (popupFailed) hidePopup(body, popupFailed, overlay);
         }
     });
 
@@ -66,7 +81,27 @@ document.addEventListener('DOMContentLoaded', () => {
 */  
     if (form) {
 
-        form.addEventListener('submit', (e) => checkFormErrors(e));
+        form.addEventListener('submit', (e) => {
+            if (checkFormErrors(e)) {
+                if (loader) showLoader(loader);
+                emailjs.sendForm(mailServiceID, mailTemplateID, form)
+                .then(
+                    (response) => {
+                        console.log('Письмо успешно отправлено!', response.status, response.text);
+                        if (loader) hideLoader(loader);
+                        hidePopupAndResetForm();
+                        showPopup(body, popupSuccess, overlay);
+                    },
+                    (error) => {
+                        console.error('Не удалось отправить письмо', error);
+                        if (loader) hideLoader(loader);
+                        hidePopupAndResetForm();
+                        showPopup(body, popupFailed, overlay);
+                    },
+                );
+            }
+        });
+
         form.addEventListener('click', (e) => clearFormErrors(e.currentTarget));
 
         const inputs = form.querySelectorAll('.form__input');
@@ -74,6 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
             placeholders[input.name] = input.placeholder;
         });
     }
+
+/*
+    ПОДГОТОВКА ОТПРАВКИ ФОРМЫ
+*/
+
+    emailjs.init({
+        publicKey: mailPublicKey,
+    });
 })
 
 function showPopup (body, popup, overlay) {
@@ -106,8 +149,6 @@ function checkFormErrors(e) {
     let isFormValid = true;
 
     const form = e.currentTarget;
-    form.action = formAction;
-    form.method = formMethod;
     
     const formName = form.querySelector('input[name="name"]');
     const formTel = form.querySelector('input[name="tel"]');
@@ -133,7 +174,7 @@ function checkFormErrors(e) {
         isFormValid = false;
     }
 
-    if (isFormValid) form.submit();
+    return isFormValid;
 }
 
 function clearFormErrors(form) {
@@ -173,4 +214,21 @@ function hideMenuMobile(body, menu, overlay) {
     body.classList.remove('noscroll');
     menu.classList.remove('menu-main_mobile');
     overlay.classList.add('hidden');
+}
+
+function mailSend(serviceID, templateID, form, body, popupSuccess, popupFailed, overlay) {
+    console.log(serviceID, templateID, form);
+
+}
+
+function showLoader(loader){
+    if (!loader) return;
+
+    loader.classList.remove('hidden');
+}
+
+function hideLoader(loader){
+    if (!loader) return;
+
+    loader.classList.add('hidden');
 }

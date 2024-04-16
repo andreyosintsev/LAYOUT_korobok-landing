@@ -413,10 +413,11 @@
     </div>
 
     <div class="popup hidden">
+        <div class="loader hidden"></div>
         <h2 class="h2 popup__heading">
             Оставьте заявку
         </h2>
-        <form class="form popup__form" method="GET">
+        <form class="form popup__form">
             <input class="form__input" name="name" placeholder="ФИО">
             <input class="form__input" name="tel" placeholder="Телефон">
             <input class="form__input" name="email" placeholder="Почта">
@@ -430,8 +431,37 @@
             </div>
         </form>
     </div>
+    <div class="popup-success hidden">
+        <h2 class="h2 popup-success__heading">
+            Успешно отправлено
+        </h2>
+        <p class="popup__text">
+            Ваше запрос было успешно отправлен.
+        </p>
+        <p class="popup__text">
+            В ближайшее время наш менеджер свяжется с Вами и предоставит всю необходимую информацию.
+        </p>
+        <p class="popup__text">
+            Благодарим за обращение!
+        </p>        
+    </div>
+    <div class="popup-failed hidden">
+        <h2 class="h2 popup-failed__heading">
+            Сообщение не отправлено
+        </h2>
+        <p class="popup__text">
+            К сожалению, Ваш запрос отправить не удалось.
+        </p>
+        <p class="popup__text">
+            Но мы знаем о проблеме, и совсем скоро её устраним. Попробуйте ещё раз отправить обращение позже.
+        </p>
+        <p class="popup__text">
+            Просим прощения за доставленные неудобства.
+        </p>        
+    </div>
     <div class="overlay hidden"></div>
     
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="js/scripts.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>

@@ -713,12 +713,66 @@ p {
     z-index: 1000;
 }
 
+.popup-success {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 435px;
+    padding: 28px 24px 29px;
+
+    background-color: #FFFFFF;
+    
+    border-radius: 20px;
+
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.popup-failed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 540px;
+    padding: 28px 24px 29px;
+
+    background-color: #FFFFFF;
+    
+    border-radius: 20px;
+
+    overflow: hidden;
+    z-index: 1000;
+}
+
 .popup__heading {
     margin-bottom: 22px;
 
     font-size: 28px;
 
     line-height: 35px;
+}
+
+.popup-success__heading {
+    margin-bottom: 22px;
+
+    font-size: 36px;
+
+    line-height: 35px;
+}
+
+.popup-failed__heading {
+    margin-bottom: 22px;
+
+    font-size: 36px;
+
+    line-height: 35px;
+}
+
+.popup__text {
+    margin-bottom: 20px;
+
+    line-height: 22px;
 }
 
 .form__input {
@@ -793,6 +847,21 @@ p {
 
     overflow: auto;
     z-index: 500;
+}
+
+.loader {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+
+    background: url('../images/loader.svg') no-repeat;
+    background-size: contain;
+
+    z-index: 3000;
 }
 
 
@@ -973,6 +1042,18 @@ p {
         font-size: 28px;
     
         line-height: 35px;
+    }
+
+    .popup-success__heading {
+        font-size: 36px;
+    
+        line-height: 38px;
+    }
+
+    .popup-failed__heading {
+        font-size: 36px;
+    
+        line-height: 38px;
     }
 
     .offer {
@@ -1157,6 +1238,22 @@ p {
         font-size: 24px;
     
         line-height: 30px;
+    }
+
+    .popup-success__heading {
+
+        margin-bottom: 14px;
+        font-size: 34px;
+    
+        line-height: 36px;
+    }
+
+    .popup-failed__heading {
+
+        margin-bottom: 14px;
+        font-size: 34px;
+    
+        line-height: 36px;
     }
 
     .form__input {
@@ -1368,6 +1465,18 @@ p {
         line-height: 24px;
     }
 
+    .popup-success__heading {
+        font-size: 24px;
+   
+        line-height: 24px;
+    }
+
+    .popup-failed__heading {
+        font-size: 24px;
+   
+        line-height: 24px;
+    }
+
     .offer {
         padding: 20px 40px 40px;
     }
@@ -1536,7 +1645,24 @@ p {
         margin-bottom: 5px;
     }
 
+    .popup-failed {
+        max-width: 90%;
+        padding: 24px 20px;
+    }
+
     .popup__heading {
+        font-size: 24px;
+    
+        line-height: 24px;
+    }
+
+    .popup-success__heading {
+        font-size: 24px;
+    
+        line-height: 24px;
+    }
+
+    .popup-failed__heading {
         font-size: 24px;
     
         line-height: 24px;
@@ -1676,6 +1802,22 @@ p {
         padding: 24px 20px;
     }
 
+    .popup-success {
+        max-width: 90%;
+        padding: 24px 20px;
+    }
+
+    .popup-failed {
+        max-width: 90%;
+        padding: 24px 20px;
+    }
+
+    .popup-failed__heading {
+        font-size: 20px;
+   
+        line-height: 22px;
+    }
+
     .offer {
         padding: 20px 20px 30px;
     }
@@ -1689,6 +1831,16 @@ p {
 
 @media screen and (max-width: 359px) {
     .popup {
+        max-width: 96%;
+        padding: 20px 18px;
+    }
+
+    .popup-success {
+        max-width: 96%;
+        padding: 20px 18px;
+    }
+
+    .popup-failed {
         max-width: 96%;
         padding: 20px 18px;
     }
