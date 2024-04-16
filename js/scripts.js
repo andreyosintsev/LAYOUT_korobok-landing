@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const body = document.querySelector('body');
     const popup = document.querySelector('.popup');
-    const form = document.querySelector('form');
+    const form = document.querySelector('.form');
     const overlay = document.querySelector('.overlay');
 
-    if (!(body && popup && form && overlay)) {
+    if (!(body && overlay)) {
         console.error('Ошибка: отсутствуют необходимые элементы HTML');
         return;
     }
@@ -35,19 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const ratesButtons = document.querySelectorAll('.rates__card button');
         
     ratesButtons.forEach(button => button.addEventListener('click', (e) => {
-        showPopup(body, popup, overlay)
-        setRateToButton(button, popup);
+        if (popup) {
+            showPopup(body, popup, overlay)
+            setRateToButton(button, popup);
+        };
     }))
 
     overlay.addEventListener('click', () => {
         hideMenuMobile(menu, overlay);
-        hidePopupAndResetForm();
+        if (popup) hidePopupAndResetForm();
     });
 
     window.addEventListener('keyup', (e) => {
         if (e.key === 'Escape') {
-            hideMenuMobile();
-            hidePopupAndResetForm();
+            hideMenuMobile(menu, overlay);
+            if (popup) hidePopupAndResetForm();
         }
     });
 
@@ -62,30 +64,31 @@ document.addEventListener('DOMContentLoaded', () => {
 /*
     РАБОТА С ФОРМОЙ
 */  
-    
-    form.addEventListener('submit', (e) => checkFormErrors(e));
-    form.addEventListener('click', (e) => clearFormErrors(e.currentTarget));
+    if (form) {
 
-    const inputs = form.querySelectorAll('.form__input');
-    inputs.forEach(input => {
-        placeholders[input.name] = input.placeholder;
-    });
+        form.addEventListener('submit', (e) => checkFormErrors(e));
+        form.addEventListener('click', (e) => clearFormErrors(e.currentTarget));
 
+        const inputs = form.querySelectorAll('.form__input');
+        inputs.forEach(input => {
+            placeholders[input.name] = input.placeholder;
+        });
+    }
 })
 
-const showPopup = (body, popup, overlay) => {
+function showPopup (body, popup, overlay) {
     body.classList.add('noscroll');
     popup.classList.remove('hidden');
     overlay.classList.remove('hidden');
 }
 
-const hidePopup = (body, popup, overlay) => {
+function hidePopup (body, popup, overlay) {
     body.classList.remove('noscroll');
     popup.classList.add('hidden');
     overlay.classList.add('hidden');
 }
 
-const setRateToButton = (button, popup) => {
+function setRateToButton (button, popup) {
     const rate = button ? button.dataset.rate : '';
     const inputRate = popup.querySelector('.form input[name="rate"]');
 

@@ -183,24 +183,37 @@ p {
     display: block !important;
     top: 0;
     right: 0;
+    width: 180px;
+    padding: 10px 50px 10px 10px;
 
-    z-index: 1000;
-    
+    background: url('../images/logo.svg') 15px 15px no-repeat;
+    background-color: #333333;
+
+    z-index: 1000;    
 }
 
 .menu-main_mobile .menu-main__items {
     display: block;
-    padding: 10px 20px 10px 10px;
 
-    background-color: #333333;
+    /* background-color: #333333; */
 }
 
 .menu-main_mobile .menu-main__item {
     padding: 8px 10px;
 }
 
+.menu-main_mobile .menu-main__item:nth-child(1) {
+    padding-top: 50px;
+}
+
 .menu-mobile-button {
     display: none;
+}
+
+.menu-main_mobile .menu-main__link {
+    color: #FFFFFF! important;
+
+    text-decoration: none !important;
 }
 
 
@@ -212,7 +225,7 @@ p {
     display: flex;
     height: 725px;
 
-    background: url(../images/background-top.png) no-repeat;
+    background: url(../images/background-top.webp) no-repeat;
     background-size: cover;
     background-color: #FEFEFE;
 
@@ -229,9 +242,14 @@ p {
 
     white-space: normal;
 }
+
+.what-is-korobok__button {
+    padding: 25px 65px;
+}
+
 .what-is-korobok__screenshot {
     display: inline-block;
-    width: 49%;
+    width: 49.1%;
 }
 
 .what-is-korobok__text {
@@ -390,7 +408,7 @@ p {
 .what-else {
     padding: 184px 9.375% 128px;
 
-    background: url(../images/background-middle.png) no-repeat;
+    background: url(../images/background-middle.webp) no-repeat;
     background-color: #FEFEFE;
 }
 
@@ -638,8 +656,6 @@ p {
 
 .demo__button {
     position: absolute;
-
-    margin-left: 40px;
 }
 
 
@@ -831,6 +847,10 @@ p {
 }
 
 @media screen and (max-width: 1199px) {
+    .what-is-korobok__button {
+        padding: 20px 60px;
+    }
+
     .our-project-purpose__card {
         margin-right: 4%;
     }
@@ -841,6 +861,10 @@ p {
 
     .what-else__card {
         margin-right: 4%;
+    }
+
+    .rates__card .card__button {
+        padding: 25px 7%;
     }
 
     .offer {
@@ -992,6 +1016,10 @@ p {
         font-size: 16px;
     
         line-height: 21.78px;
+    }
+
+    .what-is-korobok__button {
+        padding: 20px 50px;
     }
 
     .rates__card .card__button {
@@ -1191,8 +1219,18 @@ p {
         fill: #FFFFFF;
     }
 
+    .menu-mobile-button_offer {
+        background: url('../images/menu-offer.svg') no-repeat;
+
+        fill: #333333;
+    }
+
     .button {
         padding: 15px;
+    }
+
+    .what-is-korobok__button {
+        padding: 15px 40px;
     }
 
     .what-is-korobok {
@@ -1314,10 +1352,6 @@ p {
         box-shadow: 10px 10px 20px 0px #00000026;
     }
 
-    .demo__button {
-        margin-left: 20px;
-    }
-
     .footer {
         padding: 20px 30px;
 
@@ -1359,7 +1393,11 @@ p {
     }
 
     .button {
-        padding: 16px 7%;
+        padding: 16px 4%;
+    }
+
+    .what-is-korobok__button {
+        padding: 15px 30px;
     }
 
     .list__item::before {
@@ -1633,10 +1671,6 @@ p {
         padding: 20px 20px 30px;
     }
 
-    .demo__button {
-        margin-left: 10px;
-    }
-    
     .popup {
         max-width: 90%;
         padding: 24px 20px;
