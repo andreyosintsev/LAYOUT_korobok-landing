@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.querySelector('.overlay');
     const loader = document.querySelector('.loader');
 
+    const rates = document.querySelector('.rates__content');
+
 
     /*
     РАБОТА С МОБИЛЬНЫМ МЕНЮ
@@ -40,16 +42,18 @@ document.addEventListener('DOMContentLoaded', () => {
     РАБОТА С POPUP
 */
     const ratesButtons = document.querySelectorAll('.rates__card button');
-        
-    if (popup) {
-        ratesButtons.forEach(button => button.addEventListener('click', () => {
-            showPopup(body, popup, overlay)
-            setRate(button, popup);
-        }))
-    } else {
-        console.error('Ошибка: в HTML отсутствует #popup-order');
-    }
 
+    if (rates && popup) {
+        rates.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('button')) return;
+
+            showPopup(body, popup, overlay)
+            setRate(e.target, popup);
+        })
+    } else {
+        console.error('Ошибка: в HTML отсутствует блок с карточками тарифов ratest__content или #popup-order');
+    }
+        
     if (overlay) {
         overlay.addEventListener('click', hideMenuAndPopups);
     }
