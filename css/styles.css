@@ -713,36 +713,8 @@ p {
     z-index: 1000;
 }
 
-.popup-success {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 435px;
-    padding: 28px 24px 29px;
-
-    background-color: #FFFFFF;
-    
-    border-radius: 20px;
-
-    overflow: hidden;
-    z-index: 1000;
-}
-
-.popup-failed {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 540px;
-    padding: 28px 24px 29px;
-
-    background-color: #FFFFFF;
-    
-    border-radius: 20px;
-
-    overflow: hidden;
-    z-index: 1000;
+.popup_failed {
+    width: 550px;
 }
 
 .popup__heading {
@@ -753,20 +725,12 @@ p {
     line-height: 35px;
 }
 
-.popup-success__heading {
-    margin-bottom: 22px;
-
+.popup__heading_success {
     font-size: 36px;
-
-    line-height: 35px;
 }
 
-.popup-failed__heading {
-    margin-bottom: 22px;
-
+.popup__heading_failed {
     font-size: 36px;
-
-    line-height: 35px;
 }
 
 .popup__text {
@@ -1044,13 +1008,13 @@ p {
         line-height: 35px;
     }
 
-    .popup-success__heading {
+    .popup__heading_success {
         font-size: 36px;
     
         line-height: 38px;
     }
 
-    .popup-failed__heading {
+    .popup__heading_failed {
         font-size: 36px;
     
         line-height: 38px;
@@ -1240,17 +1204,13 @@ p {
         line-height: 30px;
     }
 
-    .popup-success__heading {
-
-        margin-bottom: 14px;
+    .popup__heading_success {
         font-size: 34px;
     
         line-height: 36px;
     }
 
-    .popup-failed__heading {
-
-        margin-bottom: 14px;
+    .popup__heading_failed {
         font-size: 34px;
     
         line-height: 36px;
@@ -1465,18 +1425,6 @@ p {
         line-height: 24px;
     }
 
-    .popup-success__heading {
-        font-size: 24px;
-   
-        line-height: 24px;
-    }
-
-    .popup-failed__heading {
-        font-size: 24px;
-   
-        line-height: 24px;
-    }
-
     .offer {
         padding: 20px 40px 40px;
     }
@@ -1628,41 +1576,16 @@ p {
         padding-top: 9px;
     }
 
-    .footer {
-        display: block;
-
-        line-height: 16px;
-        text-align: left;
-    }
-
     .footer__email {
-        display: block;
-        margin-bottom: 1px;
+        margin-right: 10px;
     }
 
-    .footer__tel {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .popup-failed {
+    .popup_failed {
         max-width: 90%;
         padding: 24px 20px;
     }
 
     .popup__heading {
-        font-size: 24px;
-    
-        line-height: 24px;
-    }
-
-    .popup-success__heading {
-        font-size: 24px;
-    
-        line-height: 24px;
-    }
-
-    .popup-failed__heading {
         font-size: 24px;
     
         line-height: 24px;
@@ -1802,20 +1725,27 @@ p {
         padding: 24px 20px;
     }
 
-    .popup-success {
-        max-width: 90%;
-        padding: 24px 20px;
-    }
-
-    .popup-failed {
-        max-width: 90%;
-        padding: 24px 20px;
-    }
-
-    .popup-failed__heading {
+    .popup__heading_failed {
         font-size: 20px;
    
         line-height: 22px;
+    }
+
+    .footer {
+        align-items: flex-end;
+        padding: 10px 20px;
+    }
+
+    .footer__email {
+        display: block;
+        
+        line-height: 16px;
+    }
+
+    .footer__tel {
+        display: block;
+
+        line-height: 16px;
     }
 
     .offer {
@@ -1831,16 +1761,6 @@ p {
 
 @media screen and (max-width: 359px) {
     .popup {
-        max-width: 96%;
-        padding: 20px 18px;
-    }
-
-    .popup-success {
-        max-width: 96%;
-        padding: 20px 18px;
-    }
-
-    .popup-failed {
         max-width: 96%;
         padding: 20px 18px;
     }

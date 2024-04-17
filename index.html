@@ -404,7 +404,6 @@
                 <a class="footer__tel" href="tel:+74957778351" title="Телефон: +7 (495) 777-83-51">
                     +7 (495) 777-83-51
                 </a>
-
             </div>
             <div class="footer__copyright">
                 &laquo;Коробок&raquo; &copy; 2024
@@ -412,7 +411,7 @@
         </footer>
     </div>
 
-    <div class="popup hidden">
+    <div class="popup hidden" id="popup-order">
         <div class="loader hidden"></div>
         <h2 class="h2 popup__heading">
             Оставьте заявку
@@ -431,8 +430,8 @@
             </div>
         </form>
     </div>
-    <div class="popup-success hidden">
-        <h2 class="h2 popup-success__heading">
+    <div class="popup popup_success hidden" id="popup-success">
+        <h2 class="h2 popup__heading popup__heading_success">
             Успешно отправлено
         </h2>
         <p class="popup__text">
@@ -445,8 +444,8 @@
             Благодарим за обращение!
         </p>        
     </div>
-    <div class="popup-failed hidden">
-        <h2 class="h2 popup-failed__heading">
+    <div class="popup popup_failed hidden" id="popup-failed">
+        <h2 class="h2 popup__heading popup__heading_failed">
             Сообщение не отправлено
         </h2>
         <p class="popup__text">

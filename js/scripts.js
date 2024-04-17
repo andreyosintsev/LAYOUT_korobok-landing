@@ -16,19 +16,15 @@ const placeholders = {};
 document.addEventListener('DOMContentLoaded', () => {
 
     const body = document.querySelector('body');
-    const popup = document.querySelector('.popup');
-    const popupSuccess = document.querySelector('.popup-success');
-    const popupFailed = document.querySelector('.popup-failed');
+    const popup = document.querySelector('#popup-order');
+    const popupSuccess = document.querySelector('#popup-success');
+    const popupFailed = document.querySelector('#popup-failed');
     const form = document.querySelector('.form');
     const overlay = document.querySelector('.overlay');
     const loader = document.querySelector('.loader');
 
-    if (!(body && overlay)) {
-        console.error('Ошибка: отсутствуют необходимые элементы HTML');
-        return;
-    }
 
-/*
+    /*
     РАБОТА С МОБИЛЬНЫМ МЕНЮ
 */ 
 
@@ -45,75 +41,80 @@ document.addEventListener('DOMContentLoaded', () => {
 */
     const ratesButtons = document.querySelectorAll('.rates__card button');
         
-    ratesButtons.forEach(button => button.addEventListener('click', (e) => {
-        if (popup) {
+    if (popup) {
+        ratesButtons.forEach(button => button.addEventListener('click', () => {
             showPopup(body, popup, overlay)
-            setRateToButton(button, popup);
-        };
-    }))
+            setRate(button, popup);
+        }))
+    } else {
+        console.error('Ошибка: в HTML отсутствует #popup-order');
+    }
 
-    overlay.addEventListener('click', () => {
-        hideMenuMobile(body, menu, overlay);
-        if (popup) hidePopupAndResetForm();
-        if (popupSuccess) hidePopup(body, popupSuccess, overlay);
-        if (popupFailed) hidePopup(body, popupFailed, overlay);
-    });
+    if (overlay) {
+        overlay.addEventListener('click', hideMenuAndPopups);
+    }
 
     window.addEventListener('keyup', (e) => {
         if (e.key === 'Escape') {
-            hideMenuMobile(body, menu, overlay);
-            if (popup) hidePopupAndResetForm();
-            if (popupSuccess) hidePopup(body, popupSuccess, overlay);
-            if (popupFailed) hidePopup(body, popupFailed, overlay);
+            hideMenuAndPopups();
         }
     });
 
     function hidePopupAndResetForm() {
         hidePopup(body, popup, overlay)
-        setRateToButton(undefined, popup);
+        setRate(undefined, popup);
         resetForm(form);
         clearFormErrors(form);
     }
 
+    function hideMenuAndPopups() {
+        hideMenuMobile(body, menu, overlay);
+        hidePopupAndResetForm();
+        hidePopup(body, popupSuccess, overlay);
+        hidePopup(body, popupFailed, overlay);
+    };
 
 /*
     РАБОТА С ФОРМОЙ
 */  
-    if (form) {
-
-        form.addEventListener('submit', (e) => {
-            if (checkFormErrors(e)) {
-                if (loader) showLoader(loader);
-                emailjs.sendForm(mailServiceID, mailTemplateID, form)
-                .then(
-                    (response) => {
-                        console.log('Письмо успешно отправлено!', response.status, response.text);
-                        if (loader) hideLoader(loader);
-                        hidePopupAndResetForm();
-                        showPopup(body, popupSuccess, overlay);
-                    },
-                    (error) => {
-                        console.error('Не удалось отправить письмо', error);
-                        if (loader) hideLoader(loader);
-                        hidePopupAndResetForm();
-                        showPopup(body, popupFailed, overlay);
-                    },
-                );
-            }
-        });
-
-        form.addEventListener('click', (e) => clearFormErrors(e.currentTarget));
-
-        const inputs = form.querySelectorAll('.form__input');
-        inputs.forEach(input => {
-            placeholders[input.name] = input.placeholder;
-        });
+    if (!form) {
+        console.error('Ошибка: в HTML отсутствует form');
+        return;
     }
 
-/*
-    ПОДГОТОВКА ОТПРАВКИ ФОРМЫ
-*/
+    form.addEventListener('submit', (e) => {
+        if (!checkFormErrors(e)) return;
 
+        showLoader(loader);
+
+        emailjs.sendForm(mailServiceID, mailTemplateID, form)
+        .then(
+            (response) => {
+                console.log('Письмо успешно отправлено!', response.status, response.text);
+                hidePopupAndResetForm();        
+                showPopup(body, popupSuccess, overlay);
+            },
+            (error) => {
+                console.error('Не удалось отправить письмо', error);
+                hidePopupAndResetForm();        
+                showPopup(body, popupFailed, overlay);
+            },
+        )
+        .finally(
+            () => {
+                hideLoader(loader);
+            }
+        )
+    });
+
+    form.addEventListener('click', (e) => clearFormErrors(e.currentTarget));
+
+    const inputs = form.querySelectorAll('.form__input');
+    inputs.forEach(input => placeholders[input.name] = input.placeholder);
+
+/*
+    ПОДГОТОВКА ОТПРАВКИ ФОРМЫ ПРИ ПОМОЩИ EMAILJS.COM
+*/
     emailjs.init({
         publicKey: mailPublicKey,
     });
@@ -122,16 +123,20 @@ document.addEventListener('DOMContentLoaded', () => {
 function showPopup (body, popup, overlay) {
     body.classList.add('noscroll');
     popup.classList.remove('hidden');
-    overlay.classList.remove('hidden');
+    if (overlay) overlay.classList.remove('hidden');
 }
 
 function hidePopup (body, popup, overlay) {
     body.classList.remove('noscroll');
     popup.classList.add('hidden');
-    overlay.classList.add('hidden');
+    if (overlay) overlay.classList.add('hidden');
 }
 
-function setRateToButton (button, popup) {
+function setRate (button, popup) {
+    if (!popup) {
+        console.error('Ошибка: в HTML отсуттвует #popup-order');
+        return;
+    }
     const rate = button ? button.dataset.rate : '';
     const inputRate = popup.querySelector('.form input[name="rate"]');
 
@@ -155,7 +160,7 @@ function checkFormErrors(e) {
     const formEmail = form.querySelector('input[name="email"]');
 
     if (!formName || !formName.value) {
-        console.error('Ошибка: в форме не было указано ФИО');
+        console.error('Ошибка: в форме отсутствует input "name" или не было указано ФИО');
         
         formName.classList.add('form__input_error');
         formName.placeholder = 'Необходимо указать ФИО';
@@ -164,7 +169,8 @@ function checkFormErrors(e) {
     }
 
     if (!((formTel && formTel.value) || (formEmail && formEmail.value))) {
-        console.error('Ошибка: в форме не был указан телефон или e-mail');
+        console.error('Ошибка: в форме отсутствует input "tel" или input "email"');
+        console.error('Ошибка: или в форме не был указан телефон или e-mail');
         
         formTel.classList.add('form__input_error');
         formEmail.classList.add('form__input_error');
@@ -178,17 +184,23 @@ function checkFormErrors(e) {
 }
 
 function clearFormErrors(form) {
-    if (!form) return;
+    if (!form) {
+        console.error('Ошибка: в HTML отсутствует form');
+        return;
+    }  
 
     const inputs = form.querySelectorAll('.form__input');
     inputs.forEach(input => {
         input.classList.remove('form__input_error');
-        input.placeholder = placeholders[input.name];
+        input.placeholder = placeholders[input.name] ? placeholders[input.name] : '';
     });
 }
 
 function resetForm(form) {
-    if (!form) return;
+    if (!form) {
+        console.error('Ошибка: в HTML отсутствует form');
+        return;
+    }          
 
     const inputs = form.querySelectorAll('.form__input');
     inputs.forEach(input => input.value = '');
@@ -196,29 +208,24 @@ function resetForm(form) {
 
 function showMenuMobile(body, menu, overlay) {
     if (!menu) {
-        console.error('Ошибка: в HTML отсутствуют необходимые элементы');
+        console.error('Ошибка: в HTML отсутствует menu');
         return;
     }
     
     body.classList.add('noscroll');
     menu.classList.add('menu-main_mobile');
-    overlay.classList.remove('hidden');
+    if (overlay) overlay.classList.remove('hidden');
 }
 
 function hideMenuMobile(body, menu, overlay) {
     if (!menu) {
-        console.error('Ошибка: в HTML отсутствуют необходимые элементы');
+        console.error('Ошибка: в HTML отсутствует menu');
         return;
     }
 
     body.classList.remove('noscroll');
     menu.classList.remove('menu-main_mobile');
-    overlay.classList.add('hidden');
-}
-
-function mailSend(serviceID, templateID, form, body, popupSuccess, popupFailed, overlay) {
-    console.log(serviceID, templateID, form);
-
+    if (overlay) overlay.classList.add('hidden');
 }
 
 function showLoader(loader){
