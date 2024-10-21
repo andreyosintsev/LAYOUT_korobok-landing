@@ -2,13 +2,13 @@
     НАСТРОЙКИ ОТПРАВКИ ФОРМЫ ОБРАТНОЙ СВЯЗИ
 */
     //Публичный ключ API keys Public Key - https://dashboard.emailjs.com/admin/account
-    const mailPublicKey = 'u3B2FsZ2o1MMFG_r6';
+    const mailPublicKey = '';
 
     //Почтовый сервис - https://dashboard.emailjs.com/admin
-    const mailServiceID = 'service_mailru';
+    const mailServiceID = '';
 
     //Шаблон письма - https://dashboard.emailjs.com/admin/templates
-    const mailTemplateID = 'template_korobok';
+    const mailTemplateID = '';
 
 
 const placeholders = {};
